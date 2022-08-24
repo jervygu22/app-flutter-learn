@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_tutorial/app2/app2_home.dart';
 
-class LearnFlutterPage extends StatefulWidget {
-  const LearnFlutterPage({Key? key}) : super(key: key);
+class AppLearnFlutterPage extends StatefulWidget {
+  const AppLearnFlutterPage({Key? key}) : super(key: key);
 
   @override
-  State<LearnFlutterPage> createState() => _LearnFlutterPageState();
+  State<AppLearnFlutterPage> createState() => _AppLearnFlutterPage();
 }
 
-class _LearnFlutterPageState extends State<LearnFlutterPage> {
+class _AppLearnFlutterPage extends State<AppLearnFlutterPage> {
   bool isSwitchOn = false;
   bool? isChecked = false;
   @override
@@ -18,6 +19,13 @@ class _LearnFlutterPageState extends State<LearnFlutterPage> {
           IconButton(
               onPressed: () {
                 debugPrint('Actions');
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (BuildContext context) {
+                      return const App2HomePage();
+                    },
+                  ),
+                );
               },
               icon: const Icon(Icons.shopping_bag)),
         ],
