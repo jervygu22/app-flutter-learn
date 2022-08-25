@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_tutorial/ecommerce/ecommerce_screens.dart';
 import 'package:flutter_application_tutorial/ecommerce/food_page_body.dart';
+import 'package:flutter_application_tutorial/ecommerce/utils/dimensions.dart';
 import 'package:flutter_application_tutorial/ecommerce/widgets/big_text.dart';
 import 'package:flutter_application_tutorial/ecommerce/widgets/small_text.dart';
 
@@ -22,8 +23,10 @@ class _MainFoodPageState extends State<MainFoodPage> {
           // show header
           Container(
             child: Container(
-              margin: EdgeInsets.only(top: 45.0, bottom: 15.0),
-              padding: EdgeInsets.only(left: 20.0, right: 20.0),
+              margin: EdgeInsets.only(
+                  top: Dimensions.height45, bottom: Dimensions.height15),
+              padding: EdgeInsets.only(
+                  left: Dimensions.width20, right: Dimensions.width20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -47,14 +50,16 @@ class _MainFoodPageState extends State<MainFoodPage> {
                   ),
                   Center(
                     child: Container(
-                      width: 45.0,
-                      height: 45.0,
+                      width: Dimensions.height45,
+                      height: Dimensions.height45,
                       child: Icon(
                         Icons.search,
+                        size: Dimensions.iconSize24,
                         color: Colors.white,
                       ),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15.0),
+                        borderRadius:
+                            BorderRadius.circular(Dimensions.radius15),
                         color: AppColors.mainColor,
                       ),
                     ),
@@ -64,7 +69,10 @@ class _MainFoodPageState extends State<MainFoodPage> {
             ),
           ),
           // show body
-          FoodPageBody(),
+          Expanded(
+              child: SingleChildScrollView(
+            child: FoodPageBody(),
+          )),
         ],
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_tutorial/app/app_profile_page.dart';
 import 'package:flutter_application_tutorial/ecommerce/ecommerce_screens.dart';
 import 'package:flutter_application_tutorial/ecommerce/utils/dimensions.dart';
 import 'package:flutter_application_tutorial/ecommerce/widgets/big_text.dart';
@@ -25,7 +26,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
     pageController.addListener(() {
       setState(() {
         _currentPageValue = pageController.page!;
-        print("current page: ${(_currentPageValue.toString())}");
+        // print("current page: ${(_currentPageValue.toString())}");
       });
     });
   }
@@ -39,6 +40,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        // slider section
         Container(
           // color: Colors.redAccent,
           height: Dimensions.pageView,
@@ -50,7 +52,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 ;
               }),
         ),
-        DotsIndicator(
+        // dots section
+        new DotsIndicator(
           dotsCount: 5,
           position: _currentPageValue,
           decorator: DotsDecorator(
@@ -60,7 +63,116 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             activeShape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(Dimensions.radius5)),
           ),
-        )
+        ),
+        // popular text header
+        SizedBox(height: Dimensions.height30),
+        Container(
+          margin: EdgeInsets.only(left: Dimensions.width30),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              BigText(text: "Popular"),
+              SizedBox(width: Dimensions.width10),
+              Container(
+                margin: const EdgeInsets.only(bottom: 3.0),
+                child: BigText(
+                  text: ".",
+                  color: Colors.black26,
+                ),
+              ),
+              SizedBox(width: Dimensions.width10),
+              Container(
+                margin: const EdgeInsets.only(bottom: 2.0),
+                child: SmallText(text: "Food pairing"),
+              ),
+            ],
+          ),
+        ),
+        // list of food and images
+        Container(
+          height: 900,
+          child: ListView.builder(
+              physics: NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              itemCount: 10,
+              itemBuilder: (context, index) {
+                return Container(
+                  margin: EdgeInsets.only(
+                      left: Dimensions.width20,
+                      right: Dimensions.width20,
+                      bottom: Dimensions.height10),
+                  child: Row(
+                    children: [
+                      // image section
+                      Container(
+                        width: 120,
+                        height: 120,
+                        decoration: BoxDecoration(
+                          borderRadius:
+                              BorderRadius.circular(Dimensions.radius20),
+                          color: Colors.white38,
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: AssetImage(
+                              "assets/images/jordan13.png",
+                            ),
+                          ),
+                        ),
+                      ),
+                      //text container
+                      Expanded(
+                        child: Container(
+                          height: 100,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(Dimensions.radius20),
+                              bottomRight: Radius.circular(Dimensions.radius20),
+                            ),
+                            color: Colors.white,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                                left: Dimensions.width10,
+                                right: Dimensions.width10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                BigText(text: "Air Jordan 13 Retro Dirty Bred"),
+                                SmallText(
+                                    text:
+                                        "The Air Jordan 1 Retro High SB 'LA To Chicago' gives the nod to the rivalry between LA and Chicago, which included a Bulls victory over the Lakers in the 1991 NBA Finals."),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    IconAndTextWidget(
+                                      icon: Icons.circle_sharp,
+                                      text: "Normal",
+                                      iconColor: AppColors.iconColor1,
+                                    ),
+                                    IconAndTextWidget(
+                                      icon: Icons.location_on,
+                                      text: "1.7km",
+                                      iconColor: AppColors.mainColor,
+                                    ),
+                                    IconAndTextWidget(
+                                      icon: Icons.access_time_rounded,
+                                      text: "32min",
+                                      iconColor: AppColors.iconColor2,
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              }),
+        ),
       ],
     );
   }
@@ -147,7 +259,9 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      BigText(text: "Jordan 1 High (LA to CHI)"),
+                      BigText(
+                          text:
+                              "Nike SB X Air Jordan 1 Retro High Defiant 'LA to Chicago'"),
                       SizedBox(height: Dimensions.height10),
                       // comments sections
                       Row(
