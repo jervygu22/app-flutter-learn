@@ -14,9 +14,12 @@ class MainFoodPage extends StatefulWidget {
 class _MainFoodPageState extends State<MainFoodPage> {
   @override
   Widget build(BuildContext context) {
+    // print("height is " + MediaQuery.of(context).size.height.toString());
+    // print("width is " + MediaQuery.of(context).size.width.toString());
     return Scaffold(
       body: Column(
         children: [
+          // show header
           Container(
             child: Container(
               margin: EdgeInsets.only(top: 45.0, bottom: 15.0),
@@ -60,6 +63,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
               ),
             ),
           ),
+          // show body
           FoodPageBody(),
         ],
       ),

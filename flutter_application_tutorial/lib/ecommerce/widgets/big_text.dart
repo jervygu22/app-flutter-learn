@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_tutorial/ecommerce/utils/dimensions.dart';
 // import 'package:flutter_application_tutorial/ecommerce/ecommerce_screens.dart';
 
 class BigText extends StatelessWidget {
@@ -11,7 +12,7 @@ class BigText extends StatelessWidget {
     Key? key,
     this.color = const Color(0xFF332d2b),
     required this.text,
-    this.size = 20.0,
+    this.size = 0,
     this.overFlow = TextOverflow.ellipsis,
   }) : super(key: key);
 
@@ -25,7 +26,7 @@ class BigText extends StatelessWidget {
         fontFamily: 'Schyler',
         color: color,
         fontWeight: FontWeight.w400,
-        fontSize: size,
+        fontSize: size == 0 ? Dimensions.font20 : size,
       ),
     );
   }

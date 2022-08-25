@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 // import 'package:flutter_application_tutorial/app/app_home_page.dart';
 // import 'package:flutter_application_tutorial/ecommerce/home_page.dart';
 import 'package:flutter_application_tutorial/ecommerce/ecommerce_screens.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.green,

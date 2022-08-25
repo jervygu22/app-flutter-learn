@@ -1,5 +1,7 @@
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_tutorial/ecommerce/ecommerce_screens.dart';
+import 'package:flutter_application_tutorial/ecommerce/utils/dimensions.dart';
 import 'package:flutter_application_tutorial/ecommerce/widgets/big_text.dart';
 import 'package:flutter_application_tutorial/ecommerce/widgets/icon_and_text_widget.dart';
 import 'package:flutter_application_tutorial/ecommerce/widgets/small_text.dart';
@@ -15,7 +17,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   PageController pageController = PageController(viewportFraction: 0.85);
   var _currentPageValue = 0.0;
   double _scaleFactor = 0.8;
-  double _height = 220;
+  double _height = Dimensions.pageViewContainer;
 
   @override
   void initState() {
@@ -35,16 +37,31 @@ class _FoodPageBodyState extends State<FoodPageBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // color: Colors.redAccent,
-      height: 320.0,
-      child: PageView.builder(
-          controller: pageController,
-          itemCount: 5,
-          itemBuilder: (context, position) {
-            return _buildPageItem(position);
-            ;
-          }),
+    return Column(
+      children: [
+        Container(
+          // color: Colors.redAccent,
+          height: Dimensions.pageView,
+          child: PageView.builder(
+              controller: pageController,
+              itemCount: 5,
+              itemBuilder: (context, position) {
+                return _buildPageItem(position);
+                ;
+              }),
+        ),
+        DotsIndicator(
+          dotsCount: 5,
+          position: _currentPageValue,
+          decorator: DotsDecorator(
+            activeColor: AppColors.mainColor,
+            size: const Size.square(9.0),
+            activeSize: const Size(18.0, 9.0),
+            activeShape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(Dimensions.radius5)),
+          ),
+        )
+      ],
     );
   }
 
@@ -79,10 +96,11 @@ class _FoodPageBodyState extends State<FoodPageBody> {
       child: Stack(
         children: [
           Container(
-            height: 220.0,
-            margin: EdgeInsets.only(left: 10.0, right: 10.0),
+            height: Dimensions.pageViewContainer,
+            margin: EdgeInsets.only(
+                left: Dimensions.width10, right: Dimensions.width10),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30.0),
+              borderRadius: BorderRadius.circular(Dimensions.radius30),
               color: index.isEven ? Color(0xFF69c5df) : Color(0xFF9294cc),
               image: const DecorationImage(
                 fit: BoxFit.cover,
@@ -95,10 +113,13 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              height: 120.0,
-              margin: EdgeInsets.only(left: 30.0, right: 30.0, bottom: 30),
+              height: Dimensions.pageViewTextContainer,
+              margin: EdgeInsets.only(
+                  left: Dimensions.width30,
+                  right: Dimensions.width30,
+                  bottom: Dimensions.width30),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20.0),
+                borderRadius: BorderRadius.circular(Dimensions.radius20),
                 color: Colors.white,
                 boxShadow: [
                   BoxShadow(
@@ -119,12 +140,16 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 ],
               ),
               child: Container(
-                padding: EdgeInsets.only(top: 10, left: 15, right: 15),
+                padding: EdgeInsets.only(
+                    top: Dimensions.height15,
+                    left: Dimensions.height15,
+                    right: Dimensions.height15),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       BigText(text: "Jordan 1 High (LA to CHI)"),
-                      SizedBox(height: 10.0),
+                      SizedBox(height: Dimensions.height10),
+                      // comments sections
                       Row(
                         children: [
                           Wrap(
@@ -142,7 +167,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                           SmallText(text: "comments"),
                         ],
                       ),
-                      SizedBox(height: 20.0),
+                      SizedBox(height: Dimensions.height20),
+                      // time and distance sections
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
