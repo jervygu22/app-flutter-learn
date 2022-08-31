@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_tutorial/ecommerce/ecommerce_screens.dart';
-import 'package:flutter_application_tutorial/ecommerce/food_page_body.dart';
+import 'package:flutter_application_tutorial/ecommerce/pages/home/food_page_body.dart';
 import 'package:flutter_application_tutorial/ecommerce/utils/dimensions.dart';
 import 'package:flutter_application_tutorial/ecommerce/widgets/big_text.dart';
 import 'package:flutter_application_tutorial/ecommerce/widgets/small_text.dart';
