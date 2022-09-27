@@ -29,6 +29,12 @@
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
         <meta-data
             android:name="flutterEmbedding"
-            android:value="2" />
+            android:value="2"/>
+
+        <!-- Added lines for google maps -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCGShAceyIm1LHL2mLja0eKCKDjoZV2Rzy"/>
+
     </application>
 </manifest>

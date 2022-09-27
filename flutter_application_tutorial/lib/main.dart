@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_tutorial/ecommerce/ecommerce_screens.dart';
 import 'package:flutter_application_tutorial/ecommerce/pages/food/popular_food_detail.dart';
+import 'package:flutter_application_tutorial/google_maps/map_screens.dart';
 // import 'package:flutter_application_tutorial/app/app_home_page.dart';
 // import 'package:flutter_application_tutorial/ecommerce/home_page.dart';
 // import 'package:flutter_application_tutorial/ecommerce/ecommerce_screens.dart';
@@ -17,11 +18,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
+      title: "Flutter Google Maps", // comment to remove title
+      debugShowCheckedModeBanner: true,
       theme: ThemeData(
         primarySwatch: Colors.green,
+        primaryColor: Colors.white,
       ),
-      home: const PopularFoodDetail(), // MainFoodPage(),
+      home:
+          const MapScreen(), // MainFoodPage(), //MapScreen(), //MainFoodPage(), // PopularFoodDetail(),
     );
   }
 }
