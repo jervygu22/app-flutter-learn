@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.white,
       ),
       home:
-          const MapScreen(), // MainFoodPage(), //MapScreen(), //MainFoodPage(), // PopularFoodDetail(),
+          const PopularFoodDetail(), //MainFoodPage(), // , //MapScreen(), //MainFoodPage(), // PopularFoodDetail(),
     );
   }
 }
